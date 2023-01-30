@@ -25,6 +25,6 @@ jobs:
       - run: npm run build
       - run: |
           cd /home/ubuntu
-          cp -r /home/ubuntu/actions-runner/work/react-app-demo/react-app-demo/build/* /home/ubuntu/react-demo-app/
+          cp -r /home/ubuntu/actions-runner/work/app-demo/app-demo/build/* /home/ubuntu/app-demo/
           cd react-demo-app
           echo All task done
