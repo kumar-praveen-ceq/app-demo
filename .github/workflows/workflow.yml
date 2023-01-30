@@ -1,0 +1,34 @@
+name: React app deployment
+
+on:
+  push:
+    branches: ["development"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm i
+      - run: npm run build
+      - run: |
+          cd /home/ubuntu
+          cp -r /home/ubuntu/actions-runner/work/react-app-demo/react-app-demo/build/* /home/ubuntu/react-demo-app/
+          cd react-demo-app
+          git add .
+          git commit -m "Build:`date +'%Y-%m-%d %H:%M:%S'`"
+          git pull --rebase
+          git push
+          echo All task done
