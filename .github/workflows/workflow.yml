@@ -26,5 +26,5 @@ jobs:
       - run: |
           cd /home/ubuntu
           cp -r /home/ubuntu/actions-runner/work/app-demo/app-demo/build/* /home/ubuntu/app-demo/
-          cd react-demo-app
+          cd app-demo
           echo All task done
