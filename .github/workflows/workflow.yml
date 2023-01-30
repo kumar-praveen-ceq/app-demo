@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: self-hosted-runner-1
 
     strategy:
       matrix:
@@ -27,8 +27,4 @@ jobs:
           cd /home/ubuntu
           cp -r /home/ubuntu/actions-runner/work/react-app-demo/react-app-demo/build/* /home/ubuntu/react-demo-app/
           cd react-demo-app
-          git add .
-          git commit -m "Build:`date +'%Y-%m-%d %H:%M:%S'`"
-          git pull --rebase
-          git push
           echo All task done
