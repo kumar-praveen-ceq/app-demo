@@ -27,11 +27,12 @@ jobs:
           cd /home/ubuntu
           cp -r /home/ubuntu/actions-runner/work/app-demo/app-demo/build/* /home/ubuntu/app-demo/
           cd /home/ubuntu/actions-runner/work/app-demo/app-demo/build/
-          git config advice.addIgnoredFile false
+          git init
           git config user.name github-actions
           git config user.email github-actions@github.com
           git checkout -b master
           git add .
           git commit -m "copied to master"
+          git remote add origin git@github.com:praveen-kumar-ceq/app-demo.git
           git push -u origin master
           echo All task done
