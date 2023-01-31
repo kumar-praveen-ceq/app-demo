@@ -21,10 +21,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+          ref: master
       - run: npm i
       - run: npm run build
       - run: |
           cd /home/ubuntu
           cp -r /home/ubuntu/actions-runner/work/app-demo/app-demo/build/* /home/ubuntu/app-demo/
-          cd app-demo
+          cd /home/ubuntu/actions-runner/work/app-demo/app-demo/build/
+          git add .
+          git commit -m "added new element"
+          git push
           echo All task done
