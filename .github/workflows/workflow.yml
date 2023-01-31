@@ -28,8 +28,8 @@ jobs:
           cp -r /home/ubuntu/actions-runner/work/app-demo/app-demo/build/* /home/ubuntu/app-demo/
           cd /home/ubuntu/actions-runner/work/app-demo/app-demo/build/
           git config advice.addIgnoredFile false
-          git config user.name "praveen-kumar-ceq"
-          git config user.email "praveenkumar.s@cloudeq.com"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git checkout -b master
           git add .
           git commit -m "copied to master"
