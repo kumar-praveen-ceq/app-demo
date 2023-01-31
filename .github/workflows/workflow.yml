@@ -26,6 +26,7 @@ jobs:
       - run: npm run build
       - run: |
           cd /home/ubuntu
+          git config advice.addIgnoredFile false
           cp -r /home/ubuntu/actions-runner/work/app-demo/app-demo/build/* /home/ubuntu/app-demo/
           cd /home/ubuntu/actions-runner/work/app-demo/app-demo/build/
           git add .
