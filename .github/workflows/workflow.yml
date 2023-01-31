@@ -16,8 +16,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: my-branch
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -32,6 +30,7 @@ jobs:
           git config advice.addIgnoredFile false
           git config user.name "praveen-kumar-ceq"
           git config user.email "praveenkumar.s@cloudeq.com"
+          git checkout -b master
           git add .
           git commit -m "copied to master"
           git push
