@@ -16,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          token:${{github.token}}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -35,4 +37,5 @@ jobs:
           git commit -m "copied to master"
           git remote add origin git@github.com:praveen-kumar-ceq/app-demo.git
           git push -u origin master
+          rm -rf .git
           echo All task done
