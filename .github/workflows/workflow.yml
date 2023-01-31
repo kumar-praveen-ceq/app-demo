@@ -33,5 +33,5 @@ jobs:
           git checkout -b master
           git add .
           git commit -m "copied to master"
-          git push
+          git push -u origin master
           echo All task done
